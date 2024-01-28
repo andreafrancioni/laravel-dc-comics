@@ -18,14 +18,14 @@
     </div>
     <div class="cardsWrapper container d-flex flex-wrap justify-content-center">
         <div class="singleCard">
-            <a href="">
+            <a href="{{route('comics.create')}}">
                 <img src="../assets/img/plus-sign-vector-icon.jpg" alt="">
                 <h3>+ Add Comic</h3>
             </a>
         </div>
         @foreach ($comics as $comic)
         <div class="singleCard">
-            <a href="http://127.0.0.1:8000/comics/{{$comic["id"]}}">
+            <a href="{{route('comics.show', $comic->id)}}">
                 <img src="{{ $comic["thumb"] }}" alt="">
                 <h3>{{strtoupper($comic["title"])}}</h3>
             </a>
