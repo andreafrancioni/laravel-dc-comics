@@ -5,16 +5,16 @@
 <section class="show">
     <div class="container">
         <div class="row">
-            <h2>{{$detail->title}}</h2>
+            <h2>{{$comic->title}}</h2>
             <div class="row">
-                <img src="{{$detail->thumb}}" alt="">
-                <p>{{$detail->description}}</p>
-                <span>{{$detail->price}}</span>
-                <span>{{$detail->series}}</span>
-                <span>{{$detail->sale_date}}</span>
-                <span>{{$detail->type}}</span>
-                <button>Edit</button>
-                <button>Delete</button>
+                <img src="{{$comic->thumb}}" alt="">
+                <p>{{$comic->description}}</p>
+                <span>{{$comic->price}}</span>
+                <span>{{$comic->series}}</span>
+                <span>{{$comic->sale_date}}</span>
+                <span>{{$comic->type}}</span>
+                <a class="btn btn-primary" href="{{route('comics.edit', $comic->id)}}">Edit</a>
+                <a class="btn btn-danger" href="">Delete</a>
             </div>
         </div>
     </div>
@@ -32,8 +32,9 @@
             width:200px;
         }
 
-        button{
+        .btn{
             width: 100px;
+            height: 50px;
         }
     }
 

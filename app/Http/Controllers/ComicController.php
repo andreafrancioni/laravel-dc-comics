@@ -48,26 +48,29 @@ class ComicController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Comic $comic)
     {
-        $detail = Comic::find($id);
-        return view("show", compact("detail"));
+        // $detail = Comic::find($id);
+        return view("show", compact("comic"));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Comic $comic)
     {
-        //
+        return view("edit", compact("comic"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->except("_token", "_method");
+        $comic->update($data);
+
+        return redirect()->route("comics.show", $comic->id);
     }
 
     /**
