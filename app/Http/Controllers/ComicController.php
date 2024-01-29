@@ -14,11 +14,20 @@ class ComicController extends Controller
         $validated = Validator::make($data, [
             "title" => "required|max:50",
             "description" => "",
-            "thumb" => "required|max:20",
             "price" => "required",
             "series" => "required|max:20",
             "sale_date" => "required",
             "type" => "required|max:20",
+        ], [
+            'title.required' => 'Il campo titolo è necessario',
+            'title.max' => 'Il campo titolo non deve superare 50 caratteri',
+            'price.required' => 'Il campo prezzo è necessario',
+            'series.required' => 'Il campo della serie è necessario',
+            'series.max' => 'Il campo della serie non può superare i 50 caratteri',
+            'sale_date' => 'Il campo della data è necessario',
+            'type.required' => 'Il campo del tipo è necessario',
+            'type.max' => 'Il campo del tipo non può superare i 50 caratteri',
+
         ])->validate();
 
         return $validated;
