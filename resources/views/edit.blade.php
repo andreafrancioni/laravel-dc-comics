@@ -6,6 +6,15 @@
     <div class="container">
         <div class="row">
             <h2>Edit Comic</h2>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
         <div class="row">
             <form action="{{ route('comics.update', $comic->id) }}" method="POST">
