@@ -14,7 +14,11 @@
                 <span>{{$comic->sale_date}}</span>
                 <span>{{$comic->type}}</span>
                 <a class="btn btn-primary" href="{{route('comics.edit', $comic->id)}}">Edit</a>
-                <a class="btn btn-danger" href="">Delete</a>
+                <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="Delete" >
+                </form>
             </div>
         </div>
     </div>
